@@ -1,5 +1,5 @@
 import {  Title } from "@/components";
-import { initialData } from "@/seed/seed";
+import { initialData } from "../../../../generated/prisma/seed";
 import clsx from "clsx";
 import Image from "next/image";
 import Link from "next/link";

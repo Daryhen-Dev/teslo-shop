@@ -1,5 +1,5 @@
 import { QuantitySelector, Title } from "@/components";
-import { initialData } from "@/seed/seed";
+import { initialData } from "../../../generated/prisma/seed";
 import Image from "next/image";
 import Link from "next/link";
 import { DiLaravel } from "react-icons/di";

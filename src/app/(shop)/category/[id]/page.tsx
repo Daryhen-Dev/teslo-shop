@@ -1,6 +1,6 @@
 import { ProductGrid, Title } from "@/components";
 import { Category } from "@/interfaces";
-import { initialData } from "@/seed/seed";
+import { initialData } from "../../../../generated/prisma/seed";
 import { notFound } from "next/navigation";
 
 const seedProducts = initialData.products;

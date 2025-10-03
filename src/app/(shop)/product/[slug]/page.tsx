@@ -1,6 +1,6 @@
 import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector } from "@/components";
 import { titleFont } from "@/confg/fonts";
-import { initialData } from "@/seed/seed";
+import { initialData } from "../../../../generated/prisma/seed";
 import { notFound } from "next/navigation";
 
 interface Props {
