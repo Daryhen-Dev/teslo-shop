@@ -1,6 +1,10 @@
-import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector } from "@/components";
+export const revalidate = 604800; // 7dias
+import { getProductBySlug } from "@/actions";
+import { ProductMobileSlideshow, ProductSlideshow, QuantitySelector, SizeSelector, StockLabel } from "@/components";
 import { titleFont } from "@/confg/fonts";
-import { initialData } from "../../../../generated/prisma/seed";
+import { get } from "http";
+import { Metadata, ResolvingMetadata } from "next";
+
 import { notFound } from "next/navigation";
 
 interface Props {
@@ -9,9 +13,26 @@ interface Props {
   }
 }
 
-export default function({ params}: Props){
+export async function generateMetadata(
+  { params }: Props,
+  parent: ResolvingMetadata
+): Promise<Metadata> {
+  const slug = (await params).slug
+ 
+  // fetch post information
+  const product = await getProductBySlug(slug) 
+ 
+  return {
+    title: product?.title ?? 'Producto no encontrado',
+    description: product?.description ?? '',
+  }
+}
+ 
+
+
+export default async function({ params}: Props){
   const {slug} = params;
-  const product = initialData.products.find(product => product.slug === slug)
+  const product = await getProductBySlug(slug);
 
   if (!product) {
     notFound()
@@ -35,6 +56,7 @@ export default function({ params}: Props){
       </div>
       {/* DEtalles */}
       <div className="col-span-1 px-5 ">
+          <StockLabel slug={product.slug}/>
           <h1 className={`${titleFont.className} antialiased font-bold text-xl`}>
             {product.title}
           </h1>

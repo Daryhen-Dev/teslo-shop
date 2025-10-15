@@ -13,7 +13,10 @@ interface Props {
   }
 }
 export default async function Home({searchParams} : Props ) {
-    const page = searchParams?.page ? parseInt(searchParams.page) : 1
+    // Esperamos a que searchParams esté disponible
+    const params = await Promise.resolve(searchParams)
+    const page = Number(params?.page || 1)
+
 
     const{ products, currentPage, totalPages} = await getPaginatedProductsWithImages({page})
 
