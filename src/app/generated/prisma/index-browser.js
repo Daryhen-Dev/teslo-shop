@@ -144,6 +144,16 @@ exports.Prisma.ProductImageScalarFieldEnum = {
   productId: 'productId'
 };
 
+exports.Prisma.UserScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  emailVerified: 'emailVerified',
+  password: 'password',
+  role: 'role',
+  image: 'image'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -152,6 +162,11 @@ exports.Prisma.SortOrder = {
 exports.Prisma.QueryMode = {
   default: 'default',
   insensitive: 'insensitive'
+};
+
+exports.Prisma.NullsOrder = {
+  first: 'first',
+  last: 'last'
 };
 exports.Gender = exports.$Enums.Gender = {
   men: 'men',
@@ -170,10 +185,16 @@ exports.Size = exports.$Enums.Size = {
   XXXL: 'XXXL'
 };
 
+exports.Role = exports.$Enums.Role = {
+  admin: 'admin',
+  user: 'user'
+};
+
 exports.Prisma.ModelName = {
   Category: 'Category',
   Product: 'Product',
-  ProductImage: 'ProductImage'
+  ProductImage: 'ProductImage',
+  User: 'User'
 };
 
 /**

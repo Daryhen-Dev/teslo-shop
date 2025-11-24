@@ -1,6 +1,7 @@
 import { geistMono, geistSans } from "@/confg/fonts";
 import type { Metadata } from "next";
 import "./globals.css";
+import { Provider } from "@/components";
 
 export const metadata: Metadata = {
   title: {
@@ -18,7 +19,9 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className={`${geistSans} ${geistMono} antialiased`}>
-        {children}
+        <Provider>
+          {children}
+        </Provider>
       </body>
     </html>
   );
